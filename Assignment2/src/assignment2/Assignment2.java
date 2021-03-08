@@ -15,7 +15,7 @@ public class Assignment2 extends Application {
         launch(args);
     }
     
-    // Step class to create the step
+    // Step method to create the step
     public void step(Group house,int x,int y, int width){
         
         // Create the step
@@ -26,7 +26,7 @@ public class Assignment2 extends Application {
         house.getChildren().add(step);
     }
     
-    // Pillar class to create the pillar
+    // Pillar method to create the pillar
     public void housePillar(Group house, int x,int y){
         
         //Create House Pillars
@@ -50,6 +50,8 @@ public class Assignment2 extends Application {
         pillarBottom.setFill(Color.WHITE);  
         house.getChildren().add(pillarBottom);
     }
+	
+	// Method to create doorWindows
     public void doorWindows(Group house, int x, int y){
         
         int count= 0;
@@ -108,7 +110,7 @@ public class Assignment2 extends Application {
         
         root.getChildren().add(roof);
         
-        //House pillars from left to right, using housePillar Class
+        //House pillars from left to right, using housePillar Method
         housePillar(house,92,130);
         housePillar(house,205,130);
         housePillar(house,340,130);
@@ -120,7 +122,7 @@ public class Assignment2 extends Application {
         int y =335;
         int width=315;
         while( stepCount != 11){
-            // Using step class to create 11 steps
+            // Using step method to create 11 steps
             step(house,x,y,width);
             
             stepCount++;
@@ -152,7 +154,7 @@ public class Assignment2 extends Application {
         midDoor.setFill(Color.WHITE);
         house.getChildren().add(midDoor);
         
-        //Door Windows for midDoor, using doorWindows class
+        //Door Windows for midDoor, using doorWindows method
         doorWindows(house,272,233);
         
         // Left Door
@@ -161,7 +163,7 @@ public class Assignment2 extends Application {
         leftDoor.setFill(Color.WHITE);
         house.getChildren().add(leftDoor);
         
-        // Door Windows for left door using doorWindows class
+        // Door Windows for left door using doorWindows method
         doorWindows(house,148,233);
         
         //Right Door
