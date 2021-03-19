@@ -1,0 +1,25 @@
+
+    .background{
+        -fx-background-color:silver;
+        -fx-border-color:white;
+        -fx-border-weight:50;
+    }
+    .button{
+        -fx-background-color:gold;
+        -fx-border-color: black;;
+        -fx-font: 20px "Calibri";
+        -fx-padding:10
+    }
+    
+    .button:hover{
+        -fx-background-color: white;
+        -fx-font-weight: bold;
+    }
+    
+    .textbox-field{
+        -fx-background-color:whitesmoke;
+        -fx-border-color:gold;
+        -fx-font-family: "Calibri";
+        -fx-font-weight: bold;
+        -fx-font-size:30pt;
+    }
