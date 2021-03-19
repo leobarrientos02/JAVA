@@ -66,7 +66,20 @@ public class LayoutGUIController {
 
     @FXML
     private Button equal;
-    
+
+/**
+ * Reads in the id of each button on the Screen Calculator,
+ * and sets a value equal to each button on MouseEvent.
+ * Through the on screen buttons the user can compute
+ * calculations.
+ *
+ * @param event 
+ *  The Mouse Event
+ * 
+ * @author Leonel Barrientos
+ * 
+ * @version 1.2
+ */
     @FXML
     void setText(MouseEvent event) {
          if(event.getSource() == num0){
@@ -155,27 +168,43 @@ public class LayoutGUIController {
         } 
        
     }
-    
+
+/**
+ * This class allows the user to use the keyboard to write simple
+ * equations and press Enter to see the result on screen.
+ * 
+ * @param event 
+ *  The Keyboard Event
+ * 
+ * @author Leonel Barrientos
+ * 
+ * @version 1.0
+ */    
     @FXML
     void setText2(KeyEvent event) {
        int arithmetic_Index=0;
        String equation;
        
+       // If the user press Enter
        if( event.getCode()==ENTER){
            // read in screen text
             equation = label.getText();
-            
+                       
             // Test if the user enter any text
             if ( equation.equals("")){
                 label.setText("Enter values");
+                
+                // Move the cursor to the end of the text
+                label.appendText(""); 
             }
-            
             //Stop the user from entering letter
-            if(!equation.matches("[a-z]")){
-                label.setText("No letters");
+            else if(!equation.matches("\\d*")){
+                label.setText("No letters/Symbols");
+                // Move the cursor to the end of the text
+                label.appendText(""); 
             }
             
-            // Allows user to enter an equal
+            // Allows user to enter an equal sign without crashing the program
             if(equation.endsWith("=")){
                 String str = equation.substring(0, equation.length()-1);
                 equation = str;
@@ -207,6 +236,8 @@ public class LayoutGUIController {
                     // Seperate the two numbers
                     operand2 = Double.parseDouble(equation.substring(0, arithmetic_Index));
                     operand1 = Double.parseDouble(equation.substring(arithmetic_Index+1, equation.length()));
+                    
+                    //Print to screen
                     label.setText(String.valueOf(operand2-operand1));  
                 }
                 else if(char_equation[i] == '*' || char_equation[i] == 'x' || char_equation[i] == 'X'){
@@ -230,4 +261,5 @@ public class LayoutGUIController {
        // Found the appendText() function online which sets the cursor to the end of the output
        label.appendText("");  
     }
+    
 }

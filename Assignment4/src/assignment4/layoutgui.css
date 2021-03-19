@@ -8,7 +8,6 @@
         -fx-background-color:gold;
         -fx-border-color: black;;
         -fx-font: 20px "Calibri";
-        -fx-padding:10
     }
     
     .button:hover{
