@@ -21,6 +21,8 @@ import javafx.stage.Stage;
  *
  * @author leoba
  */
+
+
 public class Week9_lab extends Application{
 
     /**
@@ -29,11 +31,13 @@ public class Week9_lab extends Application{
     public static void main(String[] args)  {
         launch(args);
     }
-
+    
     @Override
     public void start(Stage stage) throws Exception {
+        
         // Create a root group
         Group root = new Group();
+        
         
         //Circle
         Circle circle1 = new Circle(300,250,200);
@@ -76,20 +80,56 @@ public class Week9_lab extends Application{
         stage.setTitle("Week9_Lab");
         stage.setScene(scene);
         stage.show();
-    }
-    
-    @FXML
-    void movePoints(ActionEvent event1){
-      
+        
+        //Move Points
+        point1.setOnMouseDragged(event->{
+            if(point1.contains(event.getX(), event.getY())){
+                point1.setCenterX(event.getX());
+                point1.setCenterY(event.getY());
+                moveLines(line1, point1,line2, point2,line3,point3);
+            }
+        });
+        
+        point2.setOnMouseDragged(event->{
+            if(point2.contains(event.getX(), event.getY())){
+                point2.setCenterX(event.getX());
+                point2.setCenterY(event.getY());
+                moveLines(line1, point1,line2, point2,line3,point3);                              
+            }
+        });
+        
+        point3.setOnMouseDragged(event->{
+            if(point3.contains(event.getX(), event.getY())){
+                point3.setCenterX(event.getX());
+                point3.setCenterY(event.getY());
+                moveLines(line1, point1,line2, point2,line3,point3);                
+            }
+        });
         
     }
     
-    @FXML
-    void movePoints(MouseEvent event1){
-        double clickX = event1.getX();
-        double clickY= event1.getY();
+    public void moveLines(Line line1, Circle point1,
+    Line line2, Circle point2,
+            Line line3, Circle point3){
+
+        //Move Line1 according with point1
+        line1.setStartX(point1.getCenterX());
+        line1.setStartY(point1.getCenterY());
+        line1.setEndX(point1.getCenterX());
+        line1.setEndY(point1.getCenterY());        
+
+        //Move Line2 according with point2
+        line2.setStartX(point2.getCenterX());
+        line2.setStartY(point2.getCenterY());
+        line2.setEndX(point2.getCenterX());
+        line2.setEndY(point2.getCenterY()); 
         
-        
+        //Move Line3 according with point3
+        line3.setStartX(point3.getCenterX());
+        line3.setStartY(point3.getCenterY());
+        line3.setEndX(point3.getCenterX());
+        line3.setEndY(point3.getCenterY());
+                             
     }
     
 }
