@@ -30,7 +30,7 @@ public class FXMLController implements Initializable {
 
     
     private String selectedShape="LINE";
-    private Color selectedColor = Color.BLUE;
+    private Color selectedColor = Color.BLACK;
     double srtX=0, srtY=0;
     double endX=0, endY=0;
     
@@ -74,7 +74,7 @@ public class FXMLController implements Initializable {
         gc.setLineWidth(mSlider.getValue());
         switch(selectedShape){
           case "LINE":   gc.strokeLine(srtX,srtY,endX,endY);break;
-          case "RECT":  gc.strokeRect(srtX,srtY,endX,endY); break;
+          case "RECT":  gc.strokeRect(srtX,srtY,Math.abs(endX-srtX),Math.abs(endY-srtY)); break;
           case "CIRCLE":  gc.strokeOval(srtX,srtY,Math.abs(endX-srtX),Math.abs(endY-srtY)); break;     
         }
     }
