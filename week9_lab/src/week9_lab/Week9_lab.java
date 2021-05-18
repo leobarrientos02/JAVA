@@ -6,15 +6,11 @@
 package week9_lab;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
-import javafx.scene.shape.Polygon;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
